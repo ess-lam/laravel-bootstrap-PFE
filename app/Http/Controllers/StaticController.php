@@ -17,8 +17,10 @@ class StaticController extends Controller
         );
     }
 
-    public function about() {
-        return view('about',
-        ['title'=>'about']);
+    public function search() {
+        return view(
+            'search',
+            ['title'=>'search']
+        );
     }
 }

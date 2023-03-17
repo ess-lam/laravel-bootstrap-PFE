@@ -2,7 +2,7 @@
 
 @section('nav')
   <a class="nav-link active" aria-current="page" href="{{route("home")}}">Home</a>
-  <a class="nav-link" href="{{route("about")}}">About</a>
+  <a class="nav-link" href="{{route("search")}}">Search</a>
   <a class="nav-link" href="{{route("projets.index")}}">Projects</a>
   <a class="nav-link" href="{{route("projets.create")}}">New</a>
 @endsection

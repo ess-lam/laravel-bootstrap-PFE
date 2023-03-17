@@ -1,9 +1,10 @@
 @extends('layout')
 
 @section('nav')
-  <a class="nav-link" href="{{route("projet1")}}">Home</a>
-  <a class="nav-link active" aria-current="page" href="{{route("projet2")}}">Search</a>
-  <a class="nav-link" href="{{route("projet3")}}">Add</a>
+<a class="nav-link" href="{{route("home")}}">Home</a>
+<a class="nav-link  active" aria-current="page" href="{{route("search")}}">Search</a>
+<a class="nav-link" href="{{route("projets.index")}}">Projects</a>
+<a class="nav-link" href="{{route("projets.create")}}">New</a>
 @endsection
 
 @section('concept')

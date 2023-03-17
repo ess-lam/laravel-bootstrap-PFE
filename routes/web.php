@@ -26,9 +26,9 @@ Route::get(
     )->name('home');
 
 Route::get(
-    '/about',
-    [StaticController::class, 'about']
-    )->name('about');
+    '/search',
+    [StaticController::class, 'search']
+    )->name('search');
 
 
 
