@@ -8,7 +8,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
 </head>
-<body style="background:rgb(228, 248, 243)">
+<body style="background:rgb(233, 225, 203)">
   <header>
     <nav class="navbar navbar-expand bg-body-tertiary">
       <div class="container-fluid">

@@ -18,7 +18,7 @@
         @foreach ($projets as $projet)
         
             <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
-              class="list-group-item list-group-item-action list-group-item-success">
+              class="list-group-item list-group-item-action list-group-item-dark">
               
               {{$projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}
             
