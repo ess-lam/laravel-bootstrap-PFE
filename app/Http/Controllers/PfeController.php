@@ -7,16 +7,6 @@ use App\Models\Projet;
 
 class PfeController extends Controller
 {
-    // Array of Static Data
-    /*private static function getData()
-    {
-        return [
-            ['id' => 1, 'etudiant' => 'etudiant 1', 'encadrant' => 'encadrant 1', 'theme' => 'info'],
-            ['id' => 2, 'etudiant' => 'etudiant 2', 'encadrant' => 'encadrant 2', 'theme' => 'math'],
-            ['id' => 3, 'etudiant' => 'etudiant 3', 'encadrant' => 'encadrant 3', 'theme' => 'sv'],
-        ];
-
-    }*/
 
     /**
      * Display a listing of the resource.
@@ -25,7 +15,7 @@ class PfeController extends Controller
     {
         return view(
             'projets.index',
-            ['title' => 'data','projets' => Projet::all()]
+            ['projets' => Projet::all()]
         );
     }
 
@@ -35,8 +25,7 @@ class PfeController extends Controller
     public function create()
     {
         return view(
-            'projets.create',
-            ['title' => 'create']
+            'projets.create'
         );
     }
 
@@ -70,7 +59,7 @@ class PfeController extends Controller
     {
         return view(
             'projets.show',
-            ['title' => 'element','projet' => Projet::findOrFail($projet)]
+            ['projet' => Projet::findOrFail($projet)]
         );
     }
 
@@ -81,7 +70,7 @@ class PfeController extends Controller
     {
         return view(
             'projets.edit',
-            ['title' => 'modification','projet' => Projet::findOrFail($projet)]);
+            ['projet' => Projet::findOrFail($projet)]);
     }
 
     /**

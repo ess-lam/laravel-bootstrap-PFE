@@ -15,13 +15,10 @@ use App\Http\Controllers\PfeController;
 |
 */
 
-Route::get(
-    '/', 
-    [StaticController::class, 'index']
-);
+
 
 Route::get(
-    '/home',
+    '/',
     [StaticController::class, 'home']
     )->name('home');
 

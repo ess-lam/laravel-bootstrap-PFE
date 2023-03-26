@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title','data')
+
 @section('nav')
   <a class="nav-link" href="{{route("home")}}">Home</a>
   <a class="nav-link" href="{{route("search")}}">Search</a>
