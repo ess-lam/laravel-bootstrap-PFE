@@ -10,5 +10,25 @@
 @endsection
 
 @section('concept')
-  <h1 class="mt-5 text-center "> Search Page </h1>
+  <h1 class="mt-5 "> Search Page </h1>
+  @if (count($projets)>0)
+
+    <div class="list-group w-50 mt-4 position-absolute top-25 start-50 translate-middle-x">
+
+      @foreach ($projets as $projet)
+      
+          <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+
+            {{$projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}
+          
+          </a>   
+        
+      @endforeach
+
+    </div> 
+    
+  @else
+    <p> there is no projects to display</p>  
+  @endif
+
 @endsection

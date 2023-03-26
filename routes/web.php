@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StaticController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PfeController;
 
 /*
@@ -17,14 +17,14 @@ use App\Http\Controllers\PfeController;
 
 
 
-Route::get(
+Route::view(
     '/',
-    [StaticController::class, 'home']
+    'home'
     )->name('home');
 
 Route::get(
     '/search',
-    [StaticController::class, 'search']
+    [SearchController::class, 'search']
     )->name('search');
 
 
