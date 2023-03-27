@@ -11,24 +11,42 @@
 
 @section('concept')
   <h1 class="mt-5 "> Search Page </h1>
-  @if (count($projets)>0)
 
-    <div class="list-group w-50 mt-4 position-absolute top-25 start-50 translate-middle-x">
+  <div class="">
+    <form action="{{ route('search', request()->query()) }}" class="d-flex justify-content-center">
+        @csrf
+        <input name="q" class="w-100"  placeholder="search here" type="text" value="{{$search_param}}" />
+        <button type="submit" >search</button>
+    </form>
+  </div>
 
-      @foreach ($projets as $projet)
-      
-          <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+  <table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col"> etudiant </th>
+            <th scope="col"> encadrant </th>
+            <th scope="col"> theme </th>
+        </tr>
+    </thead>
+    <tbody>
+      @if (count($projets)>0)
+        @foreach ($projets as $projet)
+            <tr>
+                <td> {{$projet->etudiant}} </td>
+                <td> {{$projet->encadrant}} </td>
+                <td> {{$projet->theme}} </td>
+            </tr>
+        @endforeach
 
-            {{$projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}
-          
-          </a>   
-        
-      @endforeach
+      @else
+        <tr>
+          <td> null </td>
+          <td> null </td>
+          <td> null </td>
+        </tr>      
+      @endif    
+    </tbody>
+  </table>
 
-    </div> 
-    
-  @else
-    <p> there is no projects to display</p>  
-  @endif
 
 @endsection
