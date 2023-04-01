@@ -11,42 +11,42 @@
 
 @section('concept')
   <h1 class="mt-5 "> Search Page </h1>
+  
+  <div class="row justify-content-center">
+    <div class="col-10">
 
-  <div class="">
-    <form action="{{ route('search', request()->query()) }}" class="d-flex justify-content-center">
+      <form action="{{ route('search', request()->query()) }}">
         @csrf
-        <input name="q" class="w-100"  placeholder="search here" type="text" value="{{$search_param}}" />
-        <button type="submit" >search</button>
-    </form>
-  </div>
+        <input name="q" class="w-50"  placeholder="search here" type="text" value="{{$search_param}}" />
+        <button type="submit" class="btn btn-outline-dark btn-sm" >search</button>
+      </form>
+      <br>
 
-  <table class="table table-dark">
-    <thead>
-        <tr>
-            <th scope="col"> etudiant </th>
-            <th scope="col"> encadrant </th>
-            <th scope="col"> theme </th>
-        </tr>
-    </thead>
-    <tbody>
-      @if (count($projets)>0)
-        @foreach ($projets as $projet)
+      @if (isset($search_param) and count($projets)>0)
+        <table class="table table-responsive table-dark">
+          <thead>
             <tr>
-                <td> {{$projet->etudiant}} </td>
-                <td> {{$projet->encadrant}} </td>
-                <td> {{$projet->theme}} </td>
+              <th scope="col"> etudiant </th>
+              <th scope="col"> encadrant </th>
+              <th scope="col"> theme </th>
             </tr>
-        @endforeach
-
+          </thead>
+          <tbody>
+            
+              @foreach ($projets as $projet)
+                  <tr>
+                    <td> {{$projet->etudiant}} </td>
+                    <td> {{$projet->encadrant}} </td>
+                    <td> {{$projet->theme}} </td>
+                  </tr>
+              @endforeach
+          </tbody>
+        </table>
+        
       @else
-        <tr>
-          <td> null </td>
-          <td> null </td>
-          <td> null </td>
-        </tr>      
-      @endif    
-    </tbody>
-  </table>
-
-
+      <p> no records found </p>
+      @endif
+    </div>
+  </div>
+  
 @endsection
