@@ -10,7 +10,7 @@
 @endsection
 
 @section('concept')
-<h1 class="mt-5"> data show Page </h1>
+<h1 class="mt-5"> Data Show Page </h1>
 <div class="mx-4 mt-4">
   
   <p class="fs-3">{{ $projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}</p> 

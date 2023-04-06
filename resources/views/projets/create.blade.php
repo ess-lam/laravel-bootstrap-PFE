@@ -10,7 +10,7 @@
 @endsection
 
 @section('concept')
-  <h1 class="mt-5"> data create Page </h1>
+  <h1 class="mt-5"> Data Create Page </h1>
   
   <div class="w-75 py-3 px-5 mt-4 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
 
@@ -48,7 +48,7 @@
       </div>
 
       <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit">submit form</button>
       </div>
       
     </form>

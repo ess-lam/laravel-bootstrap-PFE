@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>page @yield('title')</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
+
 </head>
 <body style="background:rgb(225, 218, 198)">
   <header>
