@@ -30,6 +30,6 @@ Route::get(
 
 Route::resource('projets',PfeController::class); 
 
-Auth::routes(['register'=> false]);
+Auth::routes(['register'=> false, 'reset' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
