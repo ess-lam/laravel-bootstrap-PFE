@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PfeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +21,15 @@ use App\Http\Controllers\PfeController;
 Route::view(
     '/',
     'home'
-    )->name('home');
+    )->name('home1');
 
 Route::get(
     '/search',
     [SearchController::class, 'search']
     )->name('search');
 
-
-
 Route::resource('projets',PfeController::class); 
 
+Auth::routes(['register'=> false]);
 
-
-Route::get('/first/{category}/{item?}', function ($category=null,$item=null) {
-    return "<h1>{$category}</h1><br><h2>{$item}</h2>";
-});
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

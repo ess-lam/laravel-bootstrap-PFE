@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Projet;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PfeController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $projets = Projet::where('user_id', Auth::id())->get();
+
         return view(
             'projets.index',
-            ['projets' => Projet::all()]
+            ['projets' => $projets]
         );
     }
 
@@ -45,6 +52,7 @@ class PfeController extends Controller
         $projet->etudiant = strip_tags($request->input('projet-etudiant'));
         $projet->encadrant = strip_tags($request->input('projet-encadrant'));
         $projet->theme = strip_tags($request->input('projet-theme'));
+        $projet->user_id = Auth::id();
 
         $projet->save();
 
@@ -57,9 +65,13 @@ class PfeController extends Controller
      */
     public function show(string $projet)
     {
+        $projet = Projet::findOrFail($projet);
+
+        Gate::authorize('view-projects', $projet);
+
         return view(
             'projets.show',
-            ['projet' => Projet::findOrFail($projet)]
+            ['projet' => $projet]
         );
     }
 
@@ -68,9 +80,14 @@ class PfeController extends Controller
      */
     public function edit(string $projet)
     {
+        $projet = Projet::findOrFail($projet);
+
+        Gate::authorize('view-projects', $projet);
+
         return view(
             'projets.edit',
-            ['projet' => Projet::findOrFail($projet)]);
+            ['projet' => $projet]
+        );
     }
 
     /**

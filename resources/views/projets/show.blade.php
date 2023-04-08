@@ -3,7 +3,7 @@
 @section('title','element')
 
 @section('nav')
-<a class="nav-link" href="{{route("home")}}">Home</a>
+<a class="nav-link" href="{{route("home1")}}">Home</a>
 <a class="nav-link" href="{{route("search")}}">Search</a>
 <a class="nav-link" href="{{route("projets.index")}}">Projects</a>
 <a class="nav-link" href="{{route("projets.create")}}">New</a>

@@ -3,10 +3,12 @@
 @section('title','accueil')
 
 @section('nav')
-  <a class="nav-link active" aria-current="page" href="{{route("home")}}">Home</a>
+  <a class="nav-link active" aria-current="page" href="{{route("home1")}}">Home</a>
   <a class="nav-link" href="{{route("search")}}">Search</a>
-  <a class="nav-link" href="{{route("projets.index")}}">Projects</a>
-  <a class="nav-link" href="{{route("projets.create")}}">New</a>
+  @auth
+    <a class="nav-link" href="{{route("projets.index")}}">Projects</a>
+    <a class="nav-link" href="{{route("projets.create")}}">New</a>
+  @endauth
 @endsection
 
 @section('concept')
