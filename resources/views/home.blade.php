@@ -12,5 +12,11 @@
 @endsection
 
 @section('concept')
-  <h1 class="mt-5 text-center"> Home Page </h1>
+<div class="home">
+  <h1> Home Page </h1>
+  <p>Platforme d'indexation des PFE</p>
+  
+</div>
+
+
 @endsection

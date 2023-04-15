@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Projet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\FileController;
 
 class PfeController extends Controller
 {
@@ -42,16 +43,29 @@ class PfeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'projet-etudiant'=> 'required',
+            'projet-etudiant1'=> 'required',
             'projet-encadrant'=> 'required',
-            'projet-theme'=> 'required'
+            'projet-theme'=> 'required',
+            'projet-sujet'=> 'required',
+            'fichier' => 'required'
         ]);
 
-        $projet = new Projet();
 
-        $projet->etudiant = strip_tags($request->input('projet-etudiant'));
+        $projet = new Projet();
+        $projet->etudiants = ["1" => strip_tags($request->input('projet-etudiant1'))];
+
+        if(strip_tags($request->input('projet-etudiant2')) )
+        $projet->etudiants += ["2" => strip_tags($request->input('projet-etudiant2'))];
+
+        if(strip_tags($request->input('projet-etudiant3')) )
+        $projet->etudiants += ["3" => strip_tags($request->input('projet-etudiant3'))];
+
         $projet->encadrant = strip_tags($request->input('projet-encadrant'));
         $projet->theme = strip_tags($request->input('projet-theme'));
+        $projet->jurys = strip_tags($request->input('projet-jurys'));
+        $projet->sujet = strip_tags($request->input('projet-sujet'));
+        $path = $request->file('fichier')->getClientOriginalName();
+        $projet->document = $request->file('fichier')->storeAs('uploads',$path,'public');
         $projet->user_id = Auth::id();
 
         $projet->save();
@@ -96,16 +110,25 @@ class PfeController extends Controller
     public function update(Request $request, string $projet)
     {
         $request->validate([
-            'projet-etudiant'=> 'required',
+            'projet-etudiant1'=> 'required',
             'projet-encadrant'=> 'required',
-            'projet-theme'=> 'required'
+            'projet-theme'=> 'required',
+            'projet-sujet'=> 'required'
         ]);
 
         $to_update = Projet::findOrFail($projet);
+        $to_update->etudiants = ["1" => strip_tags($request->input('projet-etudiant1'))];
 
-        $to_update->etudiant = strip_tags($request->input('projet-etudiant')) ;
+        if(strip_tags($request->input('projet-etudiant2')) )
+        $to_update->etudiants += ["2" => strip_tags($request->input('projet-etudiant2'))];
+
+        if(strip_tags($request->input('projet-etudiant3')) )
+        $to_update->etudiants += ["3" => strip_tags($request->input('projet-etudiant3'))];
+
         $to_update->encadrant = strip_tags($request->input('projet-encadrant'));
         $to_update->theme = strip_tags($request->input('projet-theme'));
+        $to_update->jurys = strip_tags($request->input('projet-jurys'));
+        $to_update->sujet = strip_tags($request->input('projet-sujet'));
 
         $to_update->save();
 

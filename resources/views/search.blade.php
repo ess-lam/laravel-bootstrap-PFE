@@ -13,7 +13,7 @@
 @endsection
 
 @section('concept')
-  <h1 class="mt-5 "> Search Page </h1>
+  <h1> Search Page </h1>
   
   <div class="row justify-content-center">
     <div class="col-10">
@@ -29,21 +29,25 @@
         <table class="table table-responsive table-dark">
           <thead>
             <tr>
-              <th scope="col"> etudiant </th>
-              <th scope="col"> encadrant </th>
-              <th scope="col"> theme </th>
+              <th scope="col"> ETUDIANTS </th>
+              <th scope="col"> ENCADRANT </th>
+              <th scope="col"> SUJET </th>
+              <th scope="col"> THEME </th>
+              <th scope="col"> DOCUMENT </th>
             </tr>
           </thead>
           <tbody>
             
               @foreach ($projets as $projet)
                   <tr>
-                    <td> {{$projet->etudiant}} </td>
+                    <td> {{implode(' , ',$projet['etudiants'])}} </td>
                     <td> {{$projet->encadrant}} </td>
-                    <td> {{$projet->theme}} </td>
+                    <td> {{$projet->sujet}} </td>
+                    <td> {{$projet->theme}} 
+                    <td> <a href={{ route('file.download',$projet->id) }}>rapport</a>  </td>
                   </tr>
               @endforeach
-          </tbody>
+          </tbody> 
         </table>
         
       @else

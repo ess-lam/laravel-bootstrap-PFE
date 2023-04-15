@@ -21,7 +21,7 @@
             <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
               class="list-group-item list-group-item-action list-group-item-dark">
               
-              {{$projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}
+              {{ implode(' , ',$projet['etudiants']).' - '.$projet['encadrant'].' - '.$projet['sujet'].' - '.$projet['theme']}}
             
             </a>          
         @endforeach

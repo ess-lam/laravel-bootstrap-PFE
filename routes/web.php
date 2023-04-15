@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PfeController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,11 @@ Route::get(
     )->name('search');
 
 Route::resource('projets',PfeController::class); 
+
+Route::controller(FileController::class)->group(function () {
+    //Route::post('/upload', 'uploadFile')->name('file.upload');
+    Route::get('/download/{id}', 'downloadFile')->name('file.download');
+});
 
 Auth::routes(['register'=> false, 'reset' => false]);
 

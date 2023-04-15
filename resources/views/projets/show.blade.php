@@ -10,13 +10,12 @@
 @endsection
 
 @section('concept')
-<h1 class="mt-5"> Data Show Page </h1>
+<h1 class="pt-5"> Data Show Page </h1>
 <div class="mx-4 mt-4">
   
-  <p class="fs-3">{{ $projet['etudiant'].' - '.$projet['encadrant'].' - '.$projet['theme']}}</p> 
+  <p class="fs-3">{{ implode(' , ',$projet['etudiants']).' - '.$projet['encadrant'].' - '.$projet['sujet'].' - '.$projet['theme'] }}</p> 
     
   <div class="d-flex justify-content-center">
-    
       <a class="inline me-2 btn btn-outline-secondary btn-sm" href="{{route('projets.edit', $projet->id) }}">modifier</a>
   
       <form class="inline" action="{{route('projets.destroy', $projet->id) }}" method="POST">
