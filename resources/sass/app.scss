@@ -8,13 +8,32 @@
 @import 'bootstrap/scss/bootstrap';
 
 body.main{
-    background-color: rgb(230, 243, 243);
+    background-color: whitesmoke;
     height: 2000px;
 }
 nav{
     background-color: lightgrey;
 }
-div.ou{
-    margin-top: auto;
-    
+
+ul.list-e{
+    list-style-type: circle;
+}
+
+div.create-form{
+    width: 95%;
+}
+
+div.list-p{
+    width: 90%;
+}
+
+div.list-p  div{
+    display: inline;
+    word-spacing: 3px;
+    text-transform: capitalize;
+}
+
+div.list-p  div.sujet{
+    text-decoration: underline;
+    text-transform: uppercase;
 }

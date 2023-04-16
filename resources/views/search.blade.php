@@ -15,45 +15,93 @@
 @section('concept')
   <h1> Search Page </h1>
   
-  <div class="row justify-content-center">
-    <div class="col-10">
-
-      <form action="{{ route('search', request()->query()) }}">
-        @csrf
-        <input name="q" class="w-50"  placeholder="search here" type="text" value="{{$search_param}}" />
-        <button type="submit" class="btn btn-outline-dark btn-sm" >search</button>
-      </form>
-      <br>
-
-      @if (isset($search_param) and count($projets)>0)
-        <table class="table table-responsive table-dark">
-          <thead>
-            <tr>
-              <th scope="col"> ETUDIANTS </th>
-              <th scope="col"> ENCADRANT </th>
-              <th scope="col"> SUJET </th>
-              <th scope="col"> THEME </th>
-              <th scope="col"> DOCUMENT </th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              @foreach ($projets as $projet)
-                  <tr>
-                    <td> {{implode(' , ',$projet['etudiants'])}} </td>
-                    <td> {{$projet->encadrant}} </td>
-                    <td> {{$projet->sujet}} </td>
-                    <td> {{$projet->theme}} 
-                    <td> <a href={{ route('file.download',$projet->id) }}>rapport</a>  </td>
-                  </tr>
-              @endforeach
-          </tbody> 
-        </table>
-        
-      @else
-      <p> no records found </p>
-      @endif
-    </div>
+  <div class="justify-content-center">
+    <form action="{{ route('search', request()->query()) }}">
+      @csrf
+      <input name="q" class="w-50"  placeholder="search here" type="text" value="{{$search_param}}" />
+      <button type="submit" class="btn btn-outline-dark btn-sm" >search</button>
+    </form>
   </div>
+
+  <div class="pt-3">
+    @if (isset($search_param) and count($projets)>0)
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped  table-success ">
+        <thead>
+          <tr>
+            <th scope="col"> ETUDIANTS </th>
+            <th scope="col"> ENCADRANTS </th>
+            <th scope="col"> JURYS</th>
+            <th scope="col"> DIPLOME </th>
+            <th scope="col"> ANNÉE </th>
+            <th scope="col"> SUJET </th>
+            <th scope="col"> DEPARTEMENT </th>
+            <th scope="col"> DOCUMENT </th>
+            <th scope="col"> MOTS CLÉS </th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          @foreach ($projets as $projet)
+            <tr>
+              {{-- etudiant --}}
+              <td>
+                <ul class="list-e">
+                  @foreach ($projet->etudiants as $etudiant)
+                    <li>{{$etudiant}}</li>
+                  @endforeach
+                </ul>
+              </td>
+              {{-- encadrant --}}
+              <td>
+                <ul class="list-e">
+                  @foreach ($projet->encadrants as $enadrant)
+                    <li>{{$enadrant}}</li>
+                  @endforeach
+                </ul>
+              </td>
+              {{-- jurys --}}
+              <td>
+                @if ($projet->jurys !== [""])
+                  <ul class="list-e">
+                    @foreach ($projet->jurys as $jury)
+                      <li>{{$jury}}</li>
+                    @endforeach
+                  </ul>
+                @endif
+              </td>
+              <td> {{$projet->diplome}} </td>
+              <td> {{$projet->annee}} </td>
+              <td> {{$projet->sujet}} </td>
+              <td> {{$projet->departement}} </td>
+              {{-- document --}}
+              <td>
+              @if(substr($projet->document,0,7)=="http://" or substr($projet->document,0,8)=="https://")
+                <a href={{$projet->document}}> lien de rapport </a>
+              @else
+                <a href={{ route('file.download',$projet->id) }}> telecharger le rapport</a>
+              @endif
+              </td>
+              {{-- mots cles --}}
+              <td>
+                {{implode(' , ',$projet->mots_cles)}}
+              </td>
+            </tr>
+            @endforeach
+        </tbody> 
+      </table>
+    </div>
+    @else
+      <p> (no records found) </p>
+    @endif
+
+  </div>
+      
+  
+  
+      
+
+      
+    
+  
   
 @endsection

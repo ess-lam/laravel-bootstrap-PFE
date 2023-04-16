@@ -43,29 +43,42 @@ class PfeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'projet-etudiant1'=> 'required',
-            'projet-encadrant'=> 'required',
-            'projet-theme'=> 'required',
+            'projet-etudiants'=> 'required',
+            'projet-encadrants'=> 'required',
+            //'projet-jurys'=> 'required',
+            'projet-departement'=> 'required',
             'projet-sujet'=> 'required',
-            'fichier' => 'required'
+            'projet-annee'=> 'required',
+            'projet-diplome'=> 'required',
         ]);
 
 
         $projet = new Projet();
-        $projet->etudiants = ["1" => strip_tags($request->input('projet-etudiant1'))];
 
-        if(strip_tags($request->input('projet-etudiant2')) )
-        $projet->etudiants += ["2" => strip_tags($request->input('projet-etudiant2'))];
+        $etudiants = strip_tags($request->input('projet-etudiants'));
+        $projet->etudiants = explode(',',$etudiants);
 
-        if(strip_tags($request->input('projet-etudiant3')) )
-        $projet->etudiants += ["3" => strip_tags($request->input('projet-etudiant3'))];
+        $encadrants = strip_tags($request->input('projet-encadrants'));
+        $projet->encadrants = explode(',',$encadrants);
 
-        $projet->encadrant = strip_tags($request->input('projet-encadrant'));
-        $projet->theme = strip_tags($request->input('projet-theme'));
-        $projet->jurys = strip_tags($request->input('projet-jurys'));
+        $jurys = strip_tags($request->input('projet-jurys'));
+        $projet->jurys = explode(',',$jurys);
+
+        $projet->departement = strip_tags($request->input('projet-departement'));
         $projet->sujet = strip_tags($request->input('projet-sujet'));
-        $path = $request->file('fichier')->getClientOriginalName();
-        $projet->document = $request->file('fichier')->storeAs('uploads',$path,'public');
+        $projet->annee = strip_tags($request->input('projet-annee'));
+        $projet->diplome = strip_tags($request->input('projet-diplome'));
+        
+        $mots_cles = strip_tags($request->input('mots_cles'));
+        $projet->mots_cles = explode(',',$mots_cles);
+
+        if( $request->file('fichier') !== null){
+            $path = $request->file('fichier')->getClientOriginalName();
+            $projet->document = $request->file('fichier')->storeAs('uploads',$path,'public');
+        }else{
+            $projet->document = strip_tags($request->input('lien'));
+        }
+        
         $projet->user_id = Auth::id();
 
         $projet->save();

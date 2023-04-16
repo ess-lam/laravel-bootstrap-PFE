@@ -19,6 +19,7 @@ class Projet extends Model
         'etudiants' => 'array',
         'encadrants' => 'array',
         'jurys' => 'array',
+        'mots_cles' => 'array',
     ];
 
     public function toSearchableArray(): array

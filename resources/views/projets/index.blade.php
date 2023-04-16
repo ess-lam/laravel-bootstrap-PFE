@@ -16,19 +16,23 @@
   
     @if (count($projets)>0)
 
-      <div class="list-group w-50 mt-4 position-absolute top-25 start-50 translate-middle-x">
+      <div class="list-p list-group mt-4 position-absolute top-25 start-50 translate-middle-x">
         @foreach ($projets as $projet)
             <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
               class="list-group-item list-group-item-action list-group-item-dark">
-              
-              {{ implode(' , ',$projet['etudiants']).' - '.$projet['encadrant'].' - '.$projet['sujet'].' - '.$projet['theme']}}
+
+              <div class="etudiant"> {{implode(' , ',$projet['etudiants'])}} </div> -
+              <div class="sujet"> {{$projet['sujet']}} </div> -
+              <div class="departement"> {{$projet['departement']}} </div> -
+              <div class="diplome"> {{$projet['diplome']}} </div> -
+              <div class="annee"> {{$projet['annee']}} </div>
             
             </a>          
         @endforeach
       </div> 
       
     @else
-      <p> there is no projects to display</p>  
+      <p> no projects are created by you</p>  
     @endif
   
   @endsection
