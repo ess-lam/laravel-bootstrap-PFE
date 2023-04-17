@@ -27,7 +27,10 @@
           </ul>
           
           <!-- Right Side Of Navbar -->
-          @include('layouts.log')
+          @auth
+            @include('layouts.log')
+          @endauth
+          
         </div>
       </nav>  
   </header>  
