@@ -13,7 +13,13 @@
 <h1 class="pt-5"> Data Show Page </h1>
 <div class="mx-4 mt-4">
   
-  <p class="fs-3">{{ implode(' , ',$projet['etudiants']).' - '.$projet['encadrant'].' - '.$projet['sujet'].' - '.$projet['theme'] }}</p> 
+  <div class="show">
+    <div class="etudiant"> {{implode(' , ',$projet['etudiants'])}} </div> 
+    <div class="sujet"> {{$projet['sujet']}} </div> 
+    <div class="departement"> {{$projet['departement']}} </div> 
+    <div class="diplome"> {{$projet['diplome']}} </div> 
+    <div class="annee"> {{$projet['annee']}} </div>
+  </div> 
     
   <div class="d-flex justify-content-center">
       <a class="inline me-2 btn btn-outline-secondary btn-sm" href="{{route('projets.edit', $projet->id) }}">modifier</a>

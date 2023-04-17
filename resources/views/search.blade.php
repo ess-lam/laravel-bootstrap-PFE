@@ -76,9 +76,9 @@
               {{-- document --}}
               <td>
               @if(substr($projet->document,0,7)=="http://" or substr($projet->document,0,8)=="https://")
-                <a href={{$projet->document}}> lien de rapport </a>
+                <a href={{$projet->document}}> lien de document </a>
               @else
-                <a href={{ route('file.download',$projet->id) }}> telecharger le rapport</a>
+                <a href={{ route('file.download',$projet->id) }}> telecharger le document</a>
               @endif
               </td>
               {{-- mots cles --}}

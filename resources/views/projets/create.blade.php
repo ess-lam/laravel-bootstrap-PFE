@@ -105,7 +105,11 @@
       {{-- diplome --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-diplome" class="form-label">diplome</label>
-        <input id="projet-diplome" name="projet-diplome" class="form-control"  placeholder="diplome" value="{{old('projet-diplome')}}" type="text">
+        <input list="diplomes" id="projet-diplome" name="projet-diplome" class="form-control"  placeholder="diplome" value="{{old('projet-diplome')}}" type="text">
+        <datalist id="diplomes">
+          <option value="Licence">
+          <option value="Master">
+        </datalist>
         @error('projet-diplome')
           <div class="text-danger">
             {{ "entrez le diplome" }}

@@ -33,7 +33,17 @@ div.list-p  div{
     text-transform: capitalize;
 }
 
-div.list-p  div.sujet{
+div.show{
+    padding-bottom: 20px;
+
+    div{
+        font-size: medium;
+    }
+    
+}
+
+div.sujet{
     text-decoration: underline;
     text-transform: uppercase;
+    font-weight: bold;
 }
