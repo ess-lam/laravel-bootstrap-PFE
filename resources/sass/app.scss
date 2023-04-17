@@ -9,30 +9,37 @@
 
 body.main{
     background-color: whitesmoke;
-    height: 2000px;
+    height: 1800px;
 }
 nav{
     background-color: lightgrey;
 }
 
+// tableau de la page de recherche 
+
 ul.list-e{
     list-style-type: circle;
+    margin: 0;
 }
 
+
+// formulaire de creation
 div.create-form{
     width: 95%;
 }
 
+// page projets de admin
 div.list-p{
     width: 90%;
+
+    div{
+        display: inline;
+        word-spacing: 3px;
+        text-transform: capitalize;
+    }    
 }
 
-div.list-p  div{
-    display: inline;
-    word-spacing: 3px;
-    text-transform: capitalize;
-}
-
+// page show de projet cree par admin
 div.show{
     padding-bottom: 20px;
 
