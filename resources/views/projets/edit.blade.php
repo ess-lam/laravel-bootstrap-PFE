@@ -10,63 +10,70 @@
 @endsection
 
 @section('concept')
-  <h1 class="mt-5"> data edit Page </h1>
+  <h1 class="pb-3"> Data Edit Page </h1>
   
-  <div class="w-75 py-3 px-5 mt-4 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
+  <div class="formulaire py-2 px-3 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
 
-    <form action="{{ route('projets.update',['projet' => $projet['id']] ) }}" method="post" class="row g-3">
+    <form action="{{ route('projets.update',['projet' => $projet['id']] ) }}" method="post" class="row g-3 py-3">
       @csrf
       @method('PUT')
-        {{-- etudiants --}}
-      <div class="col-md-4">
-        <label for="projet-etudiant1" class="form-label">nom etudiant1</label>
-        <input id="projet-etudiant1" name="projet-etudiant1" class="form-control" value="{{$projet->etudiants["1"]}}" type="text">
-        @error('projet-etudiant1')
+      {{--  etudiants --}}
+      <div class="col-md-4 col-sm-6">
+        <label for="projet-etudiants" class="form-label">nom des etudiants<br>(délimiteur: , )</label>
+        <input id="projet-etudiants" name="projet-etudiants" class="form-control"  placeholder="etudiants" value={{implode(' , ',$projet->etudiants)}} type="text">
+        @error('projet-etudiants')
           <div class="text-danger">
-            {{ "entrez nom de l'etudiant" }}
+            {{ "entrez nom d'un etudiant" }}
           </div>
         @enderror
-
-        @isset ($projet->etudiants["2"])
-          <label for="projet-etudiant2" class="form-label">nom etudiant2</label>
-          <input id="projet-etudiant2" name="projet-etudiant2" class="form-control" value="{{$projet->etudiants["2"]}}" type="text">
-        @endisset
-      
-        @isset ($projet->etudiants["3"])
-          <label for="projet-etudiant3" class="form-label">nom etudiant1</label>
-          <input id="projet-etudiant3" name="projet-etudiant3" class="form-control" value="{{$projet->etudiants["3"]}}" type="text">
-        @endisset
+      </div>
         
-      </div>
-        {{--  encadrant --}}
-      <div class="col-md-4">
-        <label for="projet-encadrant" class="form-label">nom encadrant</label>
-        <input id="projet-encadrant" name="projet-encadrant" class="form-control" value="{{$projet->encadrant}}" type="text">
-        @error('projet-encadrant')
-          <div class="text-danger">
-            {{ "entrez nom de l'encadrant" }}
-          </div>
+          {{--  encadrants --}}
+      <div class="col-md-4 col-sm-6">
+        <label for="projet-encadrants" class="form-label">nom des encadrants<br>(délimiteur: , )</label>
+        <input id="projet-encadrants" name="projet-encadrants" class="form-control"  placeholder="encadrants" value={{implode(' , ',$projet->encadrants)}} type="text">
+        @error('projet-encadrants')
+        <div class="text-danger">
+          {{ "entrez nom d'un encadrant" }}
+        </div>
         @enderror
       </div>
-        {{-- theme --}}
-      <div class="col-md-4">
-        <label for="projet-theme" class="form-label">theme</label>
-        <input id="projet-theme" name="projet-theme" class="form-control" value="{{ $projet->theme }}" type="text">
-        @error('projet-theme')
-          <div class="text-danger">
-            {{ "entrez le theme" }}
-          </div>
-        @enderror
-      </div>
+      
       {{-- jurys --}}
-      <div class="col-md-4">
-        <label for="projet-jurys" class="form-label">jurys</label>
-        <input id="projet-jurys" name="projet-jurys" class="form-control" value="{{$projet->jurys}}" type="text">
+      <div class="col-md-4 col-sm-6">
+        <label for="projet-jurys" class="form-label">nom des jurys<br>(délimiteur: , )</label>
+        <input id="projet-jurys" name="projet-jurys" class="form-control"  placeholder="jurys" 
+        @if ($projet->jurys !== [""])
+          value={{implode(' , ',$projet->jurys)}}
+        @endif
+        type="text">
       </div>
+
+      {{-- departement --}}
+      <div class="col-md-4 col-sm-6">
+        <label for="projet-departement" class="form-label">département</label>
+        <input list="departements" id="projet-departement" name="projet-departement" class="form-control" placeholder="departement" value={{$projet->departement}} type="text">
+        <datalist id="departements">
+          <option value="Informatique">
+          <option value="Mathematique">
+          <option value="Physique">
+          <option value="Chimie">
+          <option value="Biologie">
+          <option value="Geologie">
+        </datalist>
+        @error('projet-departement')
+          <div class="text-danger">
+            {{ "entrez le departement" }}
+          </div>
+        @enderror
+      </div>
+
       {{-- sujet --}}
-      <div class="col-md-4">
+      <div class="col-md-8 col-sm-6">
         <label for="projet-sujet" class="form-label">sujet</label>
-        <input id="projet-sujet" name="projet-sujet" class="form-control" value="{{$projet->sujet}}" type="text">
+        <input id="projet-sujet" name="projet-sujet" class="form-control"  placeholder="sujet" 
+        value="{{$projet->sujet}}" 
+        type="text">
         @error('projet-sujet')
           <div class="text-danger">
             {{ "entrez le sujet" }}
@@ -74,6 +81,59 @@
         @enderror
       </div>
 
+      {{-- annee --}}
+      <div class="col-md-2 col-sm-6">
+        <label for="projet-annee" class="form-label">année</label>
+        <input id="projet-annee" name="projet-annee" class="form-control"  placeholder="annee" value={{$projet->annee}} type="text">
+        @error('projet-annee')
+          <div class="text-danger">
+            {{ "entrez l'année" }}
+          </div>
+        @enderror
+      </div>
+      {{-- diplome --}}
+      <div class="col-md-4 col-sm-6">
+        <label for="projet-diplome" class="form-label">diplome</label>
+        <input list="diplomes" id="projet-diplome" name="projet-diplome" class="form-control"  placeholder="diplome" value={{$projet->diplome}} type="text">
+        <datalist id="diplomes">
+          <option value="Licence">
+          <option value="Master">
+        </datalist>
+        @error('projet-diplome')
+          <div class="text-danger">
+            {{ "entrez le diplome" }}
+          </div>
+        @enderror
+      </div>
+      {{-- mots_cles --}}
+      <div class="col-sm-6">
+        <label for="mots_cles" class="form-label">mots clés (délimiteur: , )</label>
+        <input id="mots_cles" name="mots cles" class="form-control"  placeholder="mots clés" 
+        @if ($projet->mots_cles !== [""])
+          value={{implode(" , ",$projet->mots_cles)}} 
+        @endif
+        type="text">
+      </div>
+
+      {{-- fichier --}}
+      <div class="col-md-5">
+        <label for="fichier" class="form-label"> document <br>
+          (type de fichier: .zip|.rar|.7zip)</label>
+        <input id="fichier" name="fichier" class="form-control" type="file" accept=".zip,.rar,.7zip">
+      </div>
+
+      <div class="col-md-1 align-self-center"> 
+        ou bien
+      </div>
+      {{-- lien --}}
+      <div class="col-md-6"> <br>
+        <label for="lien" class="form-label"> url </label>
+        <input id="lien" name="lien" class="form-control" type="url" 
+        @if ($projet->lien !== "")
+          value={{$projet->lien}} 
+        @endif >
+      </div>
+    
       <div class="col-12">
         <button class="btn btn-primary" type="submit">Submit form</button>
       </div>

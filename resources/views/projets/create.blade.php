@@ -12,7 +12,7 @@
 @section('concept')
   <h1 class="pb-3"> Data Create Page </h1>
   
-  <div class="create-form py-2 px-3 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
+  <div class="formulaire py-2 px-3 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
 
     <form action="{{ route('projets.store') }}" method="post" class="row g-3 py-3" enctype="multipart/form-data">
       @csrf
@@ -50,18 +50,6 @@
         @enderror
       </div>
 
-      {{-- <label>Choose a browser from this list:
-        <input list="browsers" name="myBrowser" /></label>
-        <datalist id="browsers">
-          <option value="Chrome">
-          <option value="Firefox">
-          <option value="Internet Explorer">
-          <option value="Opera">
-          <option value="Safari">
-          <option value="Microsoft Edge">
-        </datalist> --}}
-        
-      
       {{-- departement --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-departement" class="form-label">département</label>

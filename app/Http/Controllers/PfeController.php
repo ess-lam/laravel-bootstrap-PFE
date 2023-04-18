@@ -123,10 +123,13 @@ class PfeController extends Controller
     public function update(Request $request, string $projet)
     {
         $request->validate([
-            'projet-etudiant1'=> 'required',
-            'projet-encadrant'=> 'required',
-            'projet-theme'=> 'required',
-            'projet-sujet'=> 'required'
+            'projet-etudiants'=> 'required',
+            'projet-encadrants'=> 'required',
+            //'projet-jurys'=> 'required',
+            'projet-departement'=> 'required',
+            'projet-sujet'=> 'required',
+            'projet-annee'=> 'required',
+            'projet-diplome'=> 'required',
         ]);
 
         $to_update = Projet::findOrFail($projet);
