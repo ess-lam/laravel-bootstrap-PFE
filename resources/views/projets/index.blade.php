@@ -11,7 +11,7 @@
 
 
   @section('concept')
-  <h1 class="mt-5"> Data Index Page </h1>
+  <h1 class=""> Data Index Page </h1>
   
   
     @if (count($projets)>0)

@@ -29,7 +29,7 @@
       <table class="table table-bordered table-striped  table-success ">
         <thead>
           <tr>
-            <th scope="col"> ETUDIANTS </th>
+            <th scope="col"> ÉTUDIANTS </th>
             <th scope="col"> ENCADRANTS </th>
             <th scope="col"> JURYS</th>
             <th scope="col"> DIPLOME </th>

@@ -14,20 +14,39 @@
 <div class="mx-4 mt-4">
   
   <div class="show">
-    <div class="etudiant"> {{implode(' , ',$projet['etudiants'])}} </div> 
-    <div class="sujet"> {{$projet['sujet']}} </div> 
-    <div class="departement"> {{$projet['departement']}} </div> 
+    <div class="sujet"> {{$projet['sujet']}} </div>
+    
+    <div class="etudiant"> 
+      <span class="label">Étudiants: </span>
+      {{implode(' , ',$projet['etudiants'])}} </div>
+      
+    <div class="encadrant"> 
+      <span class="label">Encadrants: </span>
+      {{implode(' , ',$projet['encadrants'])}} </div> 
+
+    <div class="departement"> 
+      <span class="label">Département:</span>
+      {{$projet['departement']}} </div> 
+
+      <div class="mot-cle"> 
+        <span class="label">mots clés: </span>
+        {{implode(' , ',$projet['mots_cles'])}} </div>
+        
     <div class="diplome"> {{$projet['diplome']}} </div> 
+
     <div class="annee"> {{$projet['annee']}} </div>
+    
   </div> 
     
-  <div class="d-flex justify-content-center">
-      <a class="inline me-2 btn btn-outline-secondary btn-sm" href="{{route('projets.edit', $projet->id) }}">modifier</a>
+  <div class="show-b d-flex justify-content-center">
+      <a class="inline me-2 btn btn-outline-success btn-sm" href="{{route('projets.edit', $projet->id) }}">
+        modifier
+      </a>
   
       <form class="inline" action="{{route('projets.destroy', $projet->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <input class="btn btn-outline-secondary btn-sm" value="supprimer" type="submit">
+        <input class="btn btn-outline-danger btn-sm" value="supprimer" type="submit">
       </form>
     
   </div>

@@ -111,20 +111,26 @@
       </div>
 
       {{-- fichier --}}
-      <div class="col-md-5">
+      <div class="col-12">
         <label for="fichier" class="form-label"> document <br>
           (type de fichier: .zip|.rar|.7zip)</label>
         <input id="fichier" name="fichier" class="form-control" type="file" accept=".zip,.rar,.7zip">
+        @error('fichier')
+        <div class="text-danger">
+          {{ "entrez le document" }}
+        </div>
+      @enderror
       </div>
 
-      <div class="col-md-1 align-self-center"> 
+      {{--<div class="col-md-1 align-self-center"> 
         ou bien
-      </div>
+      </div> --}}
+
       {{-- lien --}}
-      <div class="col-md-6"> <br>
+      {{-- <div class="col-md-6"> <br>
         <label for="lien" class="form-label"> url </label>
         <input id="lien" name="lien" class="form-control" type="url" value="{{old('lien')}}">
-      </div>
+      </div> --}}
       
       
       <div class="col-12">

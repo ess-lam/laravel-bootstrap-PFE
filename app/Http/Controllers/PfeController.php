@@ -50,6 +50,7 @@ class PfeController extends Controller
             'projet-sujet'=> 'required',
             'projet-annee'=> 'required',
             'projet-diplome'=> 'required',
+            'fichier'=> 'required',
         ]);
 
 
@@ -133,19 +134,22 @@ class PfeController extends Controller
         ]);
 
         $to_update = Projet::findOrFail($projet);
-        $to_update->etudiants = ["1" => strip_tags($request->input('projet-etudiant1'))];
+        $etudiants = strip_tags($request->input('projet-etudiants'));
+        $to_update->etudiants = explode(',',$etudiants);
 
-        if(strip_tags($request->input('projet-etudiant2')) )
-        $to_update->etudiants += ["2" => strip_tags($request->input('projet-etudiant2'))];
+        $encadrants = strip_tags($request->input('projet-encadrants'));
+        $to_update->encadrants = explode(',',$encadrants);
 
-        if(strip_tags($request->input('projet-etudiant3')) )
-        $to_update->etudiants += ["3" => strip_tags($request->input('projet-etudiant3'))];
+        $jurys = strip_tags($request->input('projet-jurys'));
+        $to_update->jurys = explode(',',$jurys);
 
-        $to_update->encadrant = strip_tags($request->input('projet-encadrant'));
-        $to_update->theme = strip_tags($request->input('projet-theme'));
-        $to_update->jurys = strip_tags($request->input('projet-jurys'));
+        $to_update->departement = strip_tags($request->input('projet-departement'));
         $to_update->sujet = strip_tags($request->input('projet-sujet'));
-
+        $to_update->annee = strip_tags($request->input('projet-annee'));
+        $to_update->diplome = strip_tags($request->input('projet-diplome'));
+        
+        $mots_cles = strip_tags($request->input('mots_cles'));
+        $to_update->mots_cles = explode(',',$mots_cles);
         $to_update->save();
 
         return redirect()->route('projets.show',$projet);

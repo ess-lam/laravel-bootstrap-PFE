@@ -20,7 +20,7 @@
       {{--  etudiants --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-etudiants" class="form-label">nom des etudiants<br>(délimiteur: , )</label>
-        <input id="projet-etudiants" name="projet-etudiants" class="form-control"  placeholder="etudiants" value={{implode(' , ',$projet->etudiants)}} type="text">
+        <input id="projet-etudiants" name="projet-etudiants" class="form-control"  placeholder="etudiants" value="{{implode(' , ',$projet->etudiants)}}" type="text">
         @error('projet-etudiants')
           <div class="text-danger">
             {{ "entrez nom d'un etudiant" }}
@@ -31,7 +31,7 @@
           {{--  encadrants --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-encadrants" class="form-label">nom des encadrants<br>(délimiteur: , )</label>
-        <input id="projet-encadrants" name="projet-encadrants" class="form-control"  placeholder="encadrants" value={{implode(' , ',$projet->encadrants)}} type="text">
+        <input id="projet-encadrants" name="projet-encadrants" class="form-control"  placeholder="encadrants" value="{{implode(' , ',$projet->encadrants)}}" type="text">
         @error('projet-encadrants')
         <div class="text-danger">
           {{ "entrez nom d'un encadrant" }}
@@ -44,7 +44,7 @@
         <label for="projet-jurys" class="form-label">nom des jurys<br>(délimiteur: , )</label>
         <input id="projet-jurys" name="projet-jurys" class="form-control"  placeholder="jurys" 
         @if ($projet->jurys !== [""])
-          value={{implode(' , ',$projet->jurys)}}
+          value="{{implode(' , ',$projet->jurys)}}"
         @endif
         type="text">
       </div>
@@ -52,7 +52,7 @@
       {{-- departement --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-departement" class="form-label">département</label>
-        <input list="departements" id="projet-departement" name="projet-departement" class="form-control" placeholder="departement" value={{$projet->departement}} type="text">
+        <input list="departements" id="projet-departement" name="projet-departement" class="form-control" placeholder="departement" value="{{$projet->departement}}" type="text">
         <datalist id="departements">
           <option value="Informatique">
           <option value="Mathematique">
@@ -94,7 +94,7 @@
       {{-- diplome --}}
       <div class="col-md-4 col-sm-6">
         <label for="projet-diplome" class="form-label">diplome</label>
-        <input list="diplomes" id="projet-diplome" name="projet-diplome" class="form-control"  placeholder="diplome" value={{$projet->diplome}} type="text">
+        <input list="diplomes" id="projet-diplome" name="projet-diplome" class="form-control"  placeholder="diplome" value="{{$projet->diplome}}" type="text">
         <datalist id="diplomes">
           <option value="Licence">
           <option value="Master">
@@ -110,28 +110,9 @@
         <label for="mots_cles" class="form-label">mots clés (délimiteur: , )</label>
         <input id="mots_cles" name="mots cles" class="form-control"  placeholder="mots clés" 
         @if ($projet->mots_cles !== [""])
-          value={{implode(" , ",$projet->mots_cles)}} 
+          value="{{implode(" , ",$projet->mots_cles)}}" 
         @endif
         type="text">
-      </div>
-
-      {{-- fichier --}}
-      <div class="col-md-5">
-        <label for="fichier" class="form-label"> document <br>
-          (type de fichier: .zip|.rar|.7zip)</label>
-        <input id="fichier" name="fichier" class="form-control" type="file" accept=".zip,.rar,.7zip">
-      </div>
-
-      <div class="col-md-1 align-self-center"> 
-        ou bien
-      </div>
-      {{-- lien --}}
-      <div class="col-md-6"> <br>
-        <label for="lien" class="form-label"> url </label>
-        <input id="lien" name="lien" class="form-control" type="url" 
-        @if ($projet->lien !== "")
-          value={{$projet->lien}} 
-        @endif >
       </div>
     
       <div class="col-12">
