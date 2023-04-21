@@ -13,7 +13,7 @@
 <h1 class="pt-5"> Data Show Page </h1>
 <div class="mx-4 mt-4">
   
-  <div class="show">
+  <div class="show-p">
     <div class="sujet"> {{$projet['sujet']}} </div>
     
     <div class="etudiant"> 

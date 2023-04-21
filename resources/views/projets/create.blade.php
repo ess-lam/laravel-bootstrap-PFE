@@ -23,7 +23,7 @@
         <input id="projet-etudiants" name="projet-etudiants" class="form-control"  placeholder="etudiants" value="{{old('projet-etudiants')}}" type="text">
         @error('projet-etudiants')
           <div class="text-danger">
-            {{ "entrez nom d'un etudiant" }}
+            {{ $message }}
           </div>
         @enderror
       </div>
@@ -34,7 +34,7 @@
         <input id="projet-encadrants" name="projet-encadrants" class="form-control"  placeholder="encadrants" value="{{old('projet-encadrants')}}" type="text">
         @error('projet-encadrants')
         <div class="text-danger">
-          {{ "entrez nom d'un encadrant" }}
+          {{ $message }}
         </div>
         @enderror
       </div>
@@ -64,7 +64,7 @@
         </datalist>
         @error('projet-departement')
           <div class="text-danger">
-            {{ "entrez le departement" }}
+            {{ $message }}
           </div>
         @enderror
       </div>
@@ -75,7 +75,7 @@
         <input id="projet-sujet" name="projet-sujet" class="form-control"  placeholder="sujet" value="{{old('projet-sujet')}}" type="text">
         @error('projet-sujet')
           <div class="text-danger">
-            {{ "entrez le sujet" }}
+            {{ $message }}
           </div>
         @enderror
       </div>
@@ -86,7 +86,7 @@
         <input id="projet-annee" name="projet-annee" class="form-control"  placeholder="annee" value="{{old('projet-annee')}}" type="text">
         @error('projet-annee')
           <div class="text-danger">
-            {{ "entrez l'année" }}
+            {{ $message }}
           </div>
         @enderror
       </div>
@@ -100,7 +100,7 @@
         </datalist>
         @error('projet-diplome')
           <div class="text-danger">
-            {{ "entrez le diplome" }}
+            {{ $message }}
           </div>
         @enderror
       </div>
@@ -117,7 +117,7 @@
         <input id="fichier" name="fichier" class="form-control" type="file" accept=".zip,.rar,.7zip">
         @error('fichier')
         <div class="text-danger">
-          {{ "entrez le document" }}
+          {{ $message }}
         </div>
       @enderror
       </div>

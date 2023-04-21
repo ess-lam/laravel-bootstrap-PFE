@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('annee');
             $table->json('mots_cles');
             $table->timestamps();
+
+            $table->unique(['etudiants','sujet']);
         });
     }
 

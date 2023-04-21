@@ -7,6 +7,7 @@ use App\Models\Projet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\FileController;
+use App\Http\Requests\StoreProjetRequest;
 
 class PfeController extends Controller
 {
@@ -40,18 +41,9 @@ class PfeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjetRequest $request)
     {
-        $request->validate([
-            'projet-etudiants'=> 'required',
-            'projet-encadrants'=> 'required',
-            //'projet-jurys'=> 'required',
-            'projet-departement'=> 'required',
-            'projet-sujet'=> 'required',
-            'projet-annee'=> 'required',
-            'projet-diplome'=> 'required',
-            'fichier'=> 'required',
-        ]);
+        $validated = $request->validated();
 
 
         $projet = new Projet();
@@ -74,8 +66,10 @@ class PfeController extends Controller
         $projet->mots_cles = explode(',',$mots_cles);
 
         if( $request->file('fichier') !== null){
+
             $path = $request->file('fichier')->getClientOriginalName();
             $projet->document = $request->file('fichier')->storeAs('uploads',$path,'public');
+
         }else{
             $projet->document = strip_tags($request->input('lien'));
         }
@@ -126,7 +120,6 @@ class PfeController extends Controller
         $request->validate([
             'projet-etudiants'=> 'required',
             'projet-encadrants'=> 'required',
-            //'projet-jurys'=> 'required',
             'projet-departement'=> 'required',
             'projet-sujet'=> 'required',
             'projet-annee'=> 'required',

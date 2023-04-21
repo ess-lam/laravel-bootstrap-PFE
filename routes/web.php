@@ -31,7 +31,6 @@ Route::get(
 Route::resource('projets',PfeController::class); 
 
 Route::controller(FileController::class)->group(function () {
-    //Route::post('/upload', 'uploadFile')->name('file.upload');
     Route::get('/download/{id}', 'downloadFile')->name('file.download');
 });
 

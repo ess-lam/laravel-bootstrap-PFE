@@ -17,6 +17,9 @@ class FileController extends Controller
         
         return response()->download(public_path('storage/'.$projet['document']));
         
+
+
+        
         //Storage::download($file)
         //echo 'download page';
         //return Storage::download($projet['document']);
