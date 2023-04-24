@@ -13,9 +13,12 @@
 
 @section('concept')
 <div class="home">
-  <h1> Home Page </h1>
-  <p>Platforme d'indexation des PFE</p>
+  <div>
+    <h1> PFE search </h1>
+    <p>Platforme d'indexation des Projets de fin d'etude</p>
+  </div>
   
+  <img class="back-img" src={{asset('storage/images/img.jpg')}} >
 </div>
 
 

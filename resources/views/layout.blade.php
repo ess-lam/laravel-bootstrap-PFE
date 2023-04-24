@@ -36,7 +36,7 @@
       </nav>  
   </header>  
   
-  <main class="text-center pt-5">
+  <main class="text-center">
     @yield('concept')
   </main>
   
