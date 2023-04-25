@@ -1,3 +1,4 @@
+@import 'variables';
 
 .home{
     position: relative;
@@ -6,16 +7,18 @@
         padding-top: 30vh;
 
         h1{
-            width: 50%;
+            width: 75%;
             margin:auto;
             text-transform: uppercase;
             font-weight: 700;
+            font-family: $font-title;
             color: rgb(0, 0, 0);
-            text-shadow: 2px 2px 5px rgb(170, 170, 170);
+            text-shadow: -1px 1px 2px rgb(135, 116, 116);
         }
         p{
             color: rgb(0, 0, 0);
-            text-shadow: 2px 2px 3px rgb(214, 49, 49);
+            text-shadow: -1px 1px  rgb(180, 136, 136);
+            font-family: $font-title;
         }
     }
     
@@ -26,7 +29,7 @@ img.back-img{
     height: 100vh;
     object-fit: cover;
     position: absolute;
-    top: 0;
+    top: -55px;
     left: 0;
     z-index: -2;
     

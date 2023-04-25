@@ -14,7 +14,7 @@
 @section('concept')
 <div class="home">
   <div>
-    <h1> PFE search </h1>
+    <h1> PFE search engine</h1>
     <p>Platforme d'indexation des Projets de fin d'etude</p>
   </div>
   
