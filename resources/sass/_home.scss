@@ -1,21 +1,28 @@
 @import 'variables';
 
-.home{
-    position: relative;
-    
-    div{
+
+.home-top{
+    background-image: url('images/img.jpg');
+    background-size: cover;
+    background-position: center;
+    height:100vh;
+    margin-top: -55px;
+    div.home-title{
         padding-top: 30vh;
 
         h1{
-            width: 75%;
+            width: 50%;
             margin:auto;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 600;
             font-family: $font-title;
+            font-size: 3em;
+            background-color: #fff4f4f1;
             color: rgb(0, 0, 0);
-            text-shadow: -1px 1px 2px rgb(135, 116, 116);
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         }
         p{
+            padding-top: 0.5em;
             color: rgb(0, 0, 0);
             text-shadow: -1px 1px  rgb(180, 136, 136);
             font-family: $font-title;
@@ -23,14 +30,163 @@
     }
     
 }
+:root {
+    --red: #ef233c;
+    --darkred: #c00424;
+    --platinum: #e5e5e5;
+    --black: #2b2d42;
+    --white: #fff;
+    //--thumb: #edf2f4;
+}
 
-img.back-img{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    top: -55px;
-    left: 0;
-    z-index: -2;
+.home-main{
+    margin-top: 4rem;
     
+    .random,.info,.math{
+        margin-bottom: 2.5em;
+        
+    }
+}
+
+div.container-cards {
+    max-width: 1400px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 32px;
+        margin: 0.20em 0;
+    }
+    ul.cards-home {
+        display: flex;
+        padding: 25px 0px;
+        list-style: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        margin: 0;
+    }
+}
+.cards-home::-webkit-scrollbar-thumb {
+    background-color: hsl(0, 70%, 65%);
+}
+.cards-home::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(0, 70%, 60%);
+}
+.cards-home::-webkit-scrollbar-thumb:active {
+    background-color: hsl(0, 70%, 55%);
+}
+
+
+.card-home {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: start;
+    transition: all 0.3s;
+
+    .card-title-home {
+    font-size: 20px;
+    }
+    .card-content {
+        margin: 20px 0;
+        max-width: 85%;
+    }
+
+    .card-link-wrapper {
+        margin-top: auto;
+    }
+
+    .card-link {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background: var(--red);
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: 0.2s;
+    }
+}
+
+.card-home:not(:last-child) {
+    margin-right: 10px;
+}
+
+.card-home:hover {
+    color: var(--white);
+    background: var(--red);
+
+    .card-link {
+        background: var(--darkred);
+    }
+}
+
+@media (max-width: 850px){
+    .home-top div.home-title h1{
+        width: 75%;
+    }
+}
+
+@media (min-width: 500px) {
+    .card-home {
+    flex-basis: calc(50% - 10px);
+    }
+
+    .card-home:not(:last-child) {
+    margin-right: 20px;
+    }
+}
+
+@media (min-width: 700px) {
+    .card-home {
+    flex-basis: calc(calc(100% / 3) - 20px);
+    }
+
+    .card-home:not(:last-child) {
+    margin-right: 30px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .card-home {
+    flex-basis: calc(25% - 30px);
+    }
+
+    .card-home:not(:last-child) {
+    margin-right: 40px;
+    }
+}
+
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+    position: fixed;
+    right: 1em;
+    bottom: 4em;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.page-footer a {
+    display: none;
+    justify-content: center;
+    width: 4em;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--platinum);
+    background-color: var(--black);
+    opacity: 0.54;
+    border-radius: 20px;
+    padding: 0.3em;
+}
+
+.page-footer a:hover {
+    color: var(--black);
+    background: var(--platinum);
+    opacity: 1;
 }

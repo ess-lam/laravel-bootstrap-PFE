@@ -5,6 +5,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PfeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\HomePage; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,9 @@ use App\Http\Controllers\FileController;
 
 
 
-Route::view(
+Route::get(
     '/',
-    'home'
+    [HomePage::class, 'index']
     )->name('home1');
 
 Route::get(

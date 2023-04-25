@@ -10,20 +10,27 @@
 <body>
     
     <header>
-        <div class="logo"><p>MyProject</p></div>
         <nav>
+            <div class="logo"><p>MyProject</p></div>
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="search">SEARCH</a></li>
                 <li><a href="#">ALL_PROJECT</a></li>
             </ul>
+            <button><a href="#">LOGIN</a></button>
         </nav>
-        <button><a href="#">LOGIN</a></button>
+        
     </header>
     
-
-    <div class="desc">
-        platforme d'indexation des projet de fin d'etudes
+    <div class="home">
+        <div class="desc">
+            platforme d'indexation des projet de fin d'etudes
+        </div>
     </div>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa doloremque deleniti unde quod, harum nemo omnis nesciunt excepturi illo exercitationem esse obcaecati enim neque commodi rem molestiae ducimus labore iusto minus eveniet. Natus vel nam eligendi unde, neque sequi voluptates, at veniam incidunt, eum impedit necessitatibus doloremque maxime? Recusandae, maiores? Vitae, accusantium, dignissimos asperiores nesciunt illo odio sit, et nam fugit laboriosam optio sequi cum animi aut! Accusamus voluptas ad quis debitis aperiam, expedita praesentium obcaecati porro ut tempore?
+    </div>
+    
 </body>
 </html>
