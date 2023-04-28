@@ -42,8 +42,8 @@
 .home-main{
     margin-top: 4rem;
     
-    .random,.info,.math{
-        margin-bottom: 2.5em;
+    .first,.second,.third{
+        margin-bottom: 4em;
         
     }
 }
@@ -91,11 +91,10 @@ div.container-cards {
     .card-title-home {
     font-size: 20px;
     }
-    .card-content {
-        margin: 20px 0;
-        max-width: 85%;
-    }
-
+    // .card-content {
+    //     //margin: 20px 0;
+    //     //max-width: 85%;
+    // }
     .card-link-wrapper {
         margin-top: auto;
     }

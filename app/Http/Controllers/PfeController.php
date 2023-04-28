@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\FileController;
 use App\Http\Requests\StoreProjetRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PfeController extends Controller
 {
@@ -56,13 +57,14 @@ class PfeController extends Controller
 
         $jurys = strip_tags($request->input('projet-jurys'));
         $projet->jurys = explode(',',$jurys);
-
-        $projet->departement = strip_tags($request->input('projet-departement'));
-        $projet->sujet = strip_tags($request->input('projet-sujet'));
-        $projet->annee = strip_tags($request->input('projet-annee'));
-        $projet->diplome = strip_tags($request->input('projet-diplome'));
         
-        $mots_cles = strip_tags($request->input('mots_cles'));
+
+        $projet->departement = strtolower(strip_tags($request->input('projet-departement')));
+        $projet->sujet = strtolower(strip_tags($request->input('projet-sujet')));
+        $projet->annee = strip_tags($request->input('projet-annee'));
+        $projet->diplome = strtolower(strip_tags($request->input('projet-diplome')));
+        
+        $mots_cles = strtolower(strip_tags($request->input('mots_cles')));
         $projet->mots_cles = explode(',',$mots_cles);
 
         if( $request->file('fichier') !== null){
@@ -136,13 +138,14 @@ class PfeController extends Controller
         $jurys = strip_tags($request->input('projet-jurys'));
         $to_update->jurys = explode(',',$jurys);
 
-        $to_update->departement = strip_tags($request->input('projet-departement'));
-        $to_update->sujet = strip_tags($request->input('projet-sujet'));
+        $to_update->departement = strtolower(strip_tags($request->input('projet-departement')));
+        $to_update->sujet = strtolower(strip_tags($request->input('projet-sujet')));
         $to_update->annee = strip_tags($request->input('projet-annee'));
-        $to_update->diplome = strip_tags($request->input('projet-diplome'));
+        $to_update->diplome = strtolower(strip_tags($request->input('projet-diplome')));
         
-        $mots_cles = strip_tags($request->input('mots_cles'));
+        $mots_cles = strtolower(strip_tags($request->input('mots_cles')));
         $to_update->mots_cles = explode(',',$mots_cles);
+        
         $to_update->save();
 
         return redirect()->route('projets.show',$projet);
@@ -155,6 +158,10 @@ class PfeController extends Controller
     public function destroy(string $projet)
     {
         $to_delete = Projet::findOrFail($projet);
+
+        $filename = $to_delete['document'];
+        Storage::disk('public')->delete($filename);
+
         $to_delete->delete();
 
         return redirect()->route('projets.index');

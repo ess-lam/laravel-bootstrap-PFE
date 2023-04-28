@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title','create')
 
 @section('nav')
   <a class="nav-link" href="{{route("home1")}}">Home</a>
@@ -10,7 +9,7 @@
 @endsection
 
 @section('concept')
-  <h1 class="pb-3"> Data Create Page </h1>
+  <h1 class="py-4"> Data Create Page </h1>
   
   <div class="formulaire py-2 px-3 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
 

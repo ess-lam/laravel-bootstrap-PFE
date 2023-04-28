@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title','data')
 
 @section('nav')
   <a class="nav-link" href="{{route("home1")}}">Home</a>
@@ -11,12 +10,12 @@
 
 
   @section('concept')
-  <h1 class=""> Data Index Page </h1>
+  <h1 class="py-4"> Data Index Page </h1>
   
   
     @if (count($projets)>0)
       <p> you have created {{count($projets)}} projects</p>
-      <div class="list-p list-group mt-4 position-absolute top-25 start-50 translate-middle-x">
+      <div class="list-p list-group position-absolute top-25 start-50 translate-middle-x">
         @foreach ($projets as $projet)
             <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
               class="list-group-item list-group-item-action list-group-item-dark">

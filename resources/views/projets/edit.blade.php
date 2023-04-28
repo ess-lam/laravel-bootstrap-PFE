@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title','modification')
 
 @section('nav')
 <a class="nav-link" href="{{route("home1")}}">Home</a>

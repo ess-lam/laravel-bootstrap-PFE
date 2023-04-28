@@ -41,11 +41,13 @@
 
 body{
     font-family: $font-body;
-    height: 1800px;
 
-    .main{
-        background-color: $body-bg;
-    }
+    // .app{
+
+    // }
+    // .main{
+    //     background-color: $body-bg;
+    // }
 }
 
 // tableau de la page de recherche 
@@ -68,4 +70,20 @@ div.sujet{
 
 div.show-b *{
     font-weight: 500;
+}
+
+#body-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#body-content {
+    padding-bottom: 3.5rem;    
+}
+
+#body-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3.5rem;            
 }

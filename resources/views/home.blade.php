@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('title','accueil')
 
 @section('nav')
   <a class="nav-link active" aria-current="page" href="{{route("home1")}}">Home</a>
@@ -24,7 +23,7 @@
 
 <div class="home-main">
   
-  <div class="random container-cards">
+  <div class="first container-cards">
     <h2>Random</h2>
     <ul class="cards-home">
     
@@ -40,7 +39,7 @@
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href="" class="card-link">rapport</a>
+          <a href={{ route('file.download',$projet->id) }}  class="card-link">rapport</a>
         </div>
       </li>
     @endforeach
@@ -49,23 +48,23 @@
   </div>
 
 
-  <div class="info container-cards">
-    <h2>Informatique</h2>
+  <div class="second container-cards">
+    <h2>Application et Site Web</h2>
     <ul class="cards-home">
     
-    @foreach ($projets as $projet)
+    @foreach ($webs as $web)
     
       <li class="card-home">
         <div>
           <h3 class="card-title-home">sujet de projet</h3>
           <div class="card-content">
             <p>
-              {{ $projet['sujet'] }}
+              {{ $web['sujet'] }}
             </p>
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href="" class="card-link">rapport</a>
+          <a href={{ route('file.download',$web->id) }}  class="card-link">rapport</a>
         </div>
       </li>
     @endforeach
@@ -74,23 +73,22 @@
     
   </div>
 
-  <div class="math container-cards">
-    <h2>Mathematique</h2>
+  <div class="third container-cards">
+    <h2>Application Desktop</h2>
     <ul class="cards-home">
     
-    @foreach ($projets as $projet)
-    
+    @foreach ($desktops as $desktop)
       <li class="card-home">
         <div>
           <h3 class="card-title-home">sujet de projet</h3>
           <div class="card-content">
             <p>
-              {{ $projet['sujet'] }}
+              {{ $desktop['sujet'] }}
             </p>
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href="" class="card-link">rapport</a>
+          <a href={{ route('file.download',$desktop->id) }} class="card-link">rapport</a>
         </div>
       </li>
     @endforeach

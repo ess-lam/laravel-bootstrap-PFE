@@ -1,7 +1,5 @@
 @extends('layout')
 
-@section('title','search')
-
 @section('nav')
   <a class="nav-link" href="{{route("home1")}}">Home</a>
   <a class="nav-link  active" aria-current="page" href="{{route("search")}}">Search</a>
@@ -13,7 +11,7 @@
 @endsection
 
 @section('concept')
-  <h1> Search Page </h1>
+  <h1 class="py-4"> Search Page </h1>
   
   <div class="justify-content-center">
     <form action="{{ route('search', request()->query()) }}">
