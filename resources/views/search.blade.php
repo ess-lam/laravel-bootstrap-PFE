@@ -57,6 +57,7 @@
                   @endforeach
                 </ul>
               </td>
+
               {{-- jurys --}}
               <td>
                 @if ($projet->jurys !== [""])
@@ -73,16 +74,23 @@
               <td> {{$projet->departement}} </td>
               {{-- document --}}
               <td>
-              @if(substr($projet->document,0,7)=="http://" or substr($projet->document,0,8)=="https://")
+                @livewire('counter', ['project_id' => $projet->id])
+
+              {{-- 
+                @if(substr($projet->document,0,7)=="http://" or substr($projet->document,0,8)=="https://")
                 <a href={{$projet->document}}> lien de document </a>
               @else
-                <a href={{ route('file.download',$projet->id) }}> telecharger le document</a>
-              @endif
+                @livewire('counter', ['project_id' => $projet->id])
+              @endif 
+              --}}
+
               </td>
+              
               {{-- mots cles --}}
               <td>
                 {{implode(' , ',$projet->mots_cles)}}
               </td>
+              
             </tr>
             @endforeach
         </tbody> 
