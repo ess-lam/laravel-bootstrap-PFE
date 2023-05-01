@@ -11,32 +11,11 @@
 @section('concept')
 <h1 class="pt-5"> Data Show Page </h1>
 <div class="mx-4 mt-4">
-  
-  <div class="show-p">
-    <div class="sujet"> {{$projet['sujet']}} </div>
-    
-    <div class="etudiant"> 
-      <span class="label">Étudiants: </span>
-      {{implode(' , ',$projet['etudiants'])}} </div>
-      
-    <div class="encadrant"> 
-      <span class="label">Encadrants: </span>
-      {{implode(' , ',$projet['encadrants'])}} </div> 
 
-    <div class="departement"> 
-      <span class="label">Département:</span>
-      {{$projet['departement']}} </div> 
+  {{-- list the project informations --}}
+  @include('components.list')
 
-      <div class="mot-cle"> 
-        <span class="label">mots clés: </span>
-        {{implode(' , ',$projet['mots_cles'])}} </div>
-        
-    <div class="diplome"> {{$projet['diplome']}} </div> 
-
-    <div class="annee"> {{$projet['annee']}} </div>
-    
-  </div> 
-    
+    {{-- buttons --}}
   <div class="show-b d-flex justify-content-center">
       <a class="inline me-2 btn btn-outline-success btn-sm" href="{{route('projets.edit', $projet->id) }}">
         modifier

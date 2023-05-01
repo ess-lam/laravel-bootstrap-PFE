@@ -39,8 +39,7 @@
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href={{ route('file.download',$projet->id) }}  class="card-link">rapport</a>
-        </div>
+          @livewire('counter', ['project_id' => $projet->id])        </div>
       </li>
     @endforeach
       
@@ -49,7 +48,7 @@
 
 
   <div class="second container-cards">
-    <h2>Application et Site Web</h2>
+    <h2>Applications et Sites Web</h2>
     <ul class="cards-home">
     
     @foreach ($webs as $web)
@@ -64,7 +63,7 @@
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href={{ route('file.download',$web->id) }}  class="card-link">rapport</a>
+          @livewire('counter', ['project_id' => $web->id])
         </div>
       </li>
     @endforeach
@@ -74,7 +73,7 @@
   </div>
 
   <div class="third container-cards">
-    <h2>Application Desktop</h2>
+    <h2>Applications Desktop</h2>
     <ul class="cards-home">
     
     @foreach ($desktops as $desktop)
@@ -88,7 +87,7 @@
           </div>
         </div>
         <div class="card-link-wrapper">
-          <a href={{ route('file.download',$desktop->id) }} class="card-link">rapport</a>
+          @livewire('counter', ['project_id' => $desktop->id])
         </div>
       </li>
     @endforeach

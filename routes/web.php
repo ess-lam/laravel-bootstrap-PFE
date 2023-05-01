@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PfeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomePage; 
+use App\Http\Livewire\Search;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +26,7 @@ Route::get(
 
 Route::get(
     '/search',
-    [SearchController::class, 'search']
+    Search::class
     )->name('search');
 
 Route::resource('projets',PfeController::class); 

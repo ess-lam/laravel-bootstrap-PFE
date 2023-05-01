@@ -15,7 +15,7 @@
   
     @if (count($projets)>0)
       <p> you have created {{count($projets)}} projects</p>
-      <div class="list-p list-group position-absolute top-25 start-50 translate-middle-x">
+      <div class="list-p list-group">
         @foreach ($projets as $projet)
             <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
               class="list-group-item list-group-item-action list-group-item-dark">
