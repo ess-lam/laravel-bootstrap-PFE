@@ -11,14 +11,11 @@
 @endsection
 
 @section('concept')
-<div class="home-top">
+<div class="home-top {{auth()->check() ? 'auth' : 'guest'}}">
   <div class="home-title">
     <h1> PFE search engine</h1>
     <p>Platforme d'indexation des Projets de fin d'etude</p>
   </div>
-  
-  {{-- <img class="back-img" src={{asset('storage/images/img.jpg')}} > --}}
-  
 </div>
 
 <div class="home-main">
@@ -39,7 +36,8 @@
           </div>
         </div>
         <div class="card-link-wrapper">
-          @livewire('counter', ['project_id' => $projet->id])        </div>
+          @livewire('counter', ['project_id' => $projet->id])
+        </div>
       </li>
     @endforeach
       

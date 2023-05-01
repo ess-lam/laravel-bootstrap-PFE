@@ -5,8 +5,8 @@
     background-image: url('images/img.jpg');
     background-size: cover;
     background-position: center;
-    height:100vh;
-    margin-top: -55px;
+    height: 100vh;
+    
     div.home-title{
         padding-top: 30vh;
 
@@ -29,6 +29,12 @@
         }
     }
     
+}
+.auth{
+    margin-top: -78px;
+}
+.guest{
+    margin-top: -55px;
 }
 :root {
     --red: #ef233c;

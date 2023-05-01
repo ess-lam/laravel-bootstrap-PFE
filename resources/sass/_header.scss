@@ -4,6 +4,13 @@ header{
     position: sticky;
     top: 0;
     z-index: 100;
+
+    > div.auth-state{
+        background-color: green; 
+        color:white; 
+        font-weight:400; 
+        text-align:center;
+    }
 }
 
 nav{
@@ -11,3 +18,4 @@ nav{
     font-weight: 500;
     //font-size: large;
 }
+
