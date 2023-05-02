@@ -38,8 +38,3 @@ Route::controller(FileController::class)->group(function () {
 Auth::routes(['register'=> false, 'reset' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::view(
-    '/page',
-    'HomePage'
-    )->name('home2');

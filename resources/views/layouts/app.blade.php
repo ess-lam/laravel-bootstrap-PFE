@@ -20,7 +20,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body style="background: linear-gradient(to right, #8360c3, #2ebf91);">
     <div id="app">
         <nav class="navbar navbar-expand shadow-sm">
             <div class="container">
@@ -37,7 +37,7 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link active" aria-current="page" href="{{ route('login') }}" style="color:white;">{{ __('Login') }}</a>
                             </li>
                         @endif
 
