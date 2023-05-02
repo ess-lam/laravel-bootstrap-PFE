@@ -37,7 +37,13 @@
             @endauth
             
           </div>
-        </nav>  
+        </nav> 
+        @auth
+          <div class="auth-state">
+            admin space 
+          </div>
+        @endauth
+        
       </header>  
   
       <main class="text-center">

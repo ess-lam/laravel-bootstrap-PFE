@@ -45,13 +45,6 @@
 
 body{
     font-family: $font-body;
-
-    // .app{
-
-    // }
-    // .main{
-    //     background-color: $body-bg;
-    // }
 }
 
 // tableau de la page de recherche 
@@ -63,7 +56,7 @@ ul.list-e{
 
 // formulaire de creation
 div.formulaire{
-    width: 95%;
+    margin: 2em;
 }
 
 div.sujet{
