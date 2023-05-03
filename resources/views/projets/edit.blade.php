@@ -1,9 +1,7 @@
 @extends('layout')
 
-
 @section('nav')
 <a class="nav-link" href="{{route("home1")}}" style="color:white">Home</a>
-<a class="nav-link" href="{{route("search")}}" style="color:white">Search</a>
 <a class="nav-link" href="{{route("projets.index")}}" style="color:white">Projects</a>
 <a class="nav-link" href="{{route("projets.create")}}" style="color:white">New</a>
 @endsection
@@ -11,7 +9,7 @@
 @section('concept')
   <h1 class="pb-3" style="font-family: 'Allura',cursive;"> Data Edit Page </h1>
   
-  <div class="formulaire py-2 px-3 border border-dark bg-light rounded position-absolute top-25 start-50 translate-middle-x">
+  <div class="formulaire py-2 px-3 border border-dark bg-light rounded">
 
     <form action="{{ route('projets.update',['projet' => $projet['id']] ) }}" method="post" class="row g-3 py-3">
       @csrf

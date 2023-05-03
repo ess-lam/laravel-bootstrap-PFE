@@ -3,7 +3,9 @@
 
 @section('nav')
   <a class="nav-link active" aria-current="page" href="{{route("home1")}}" style="color:white">Home</a>
-  <a class="nav-link" href="{{route("search")}}" style="color:white">Search</a>
+  @guest
+    <a class="nav-link" href="{{route("search")}}" style="color:white">Search</a>
+  @endguest
   @auth
     <a class="nav-link" href="{{route("projets.index")}}" style="color:white">Projects</a>
     <a class="nav-link" href="{{route("projets.create")}}" style="color:white">New</a>
