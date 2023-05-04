@@ -1,11 +1,11 @@
 <div>
-    <div class="d-flex flex-wrap justify-content-center">
+    <div class="">
             
         <input wire:model.debounce.210ms="etudiants"
         class=""  placeholder="etudiants" type="search" />
 
         <input wire:model.debounce.220ms="encadrants"
-        class=""  placeholder="encadrants" type="search" />
+        placeholder="encadrants" type="search" />
 
         <input wire:model.debounce.230ms="jurys"
         class=""  placeholder="jurys" type="search" />
@@ -14,7 +14,7 @@
         class=""  placeholder="diplome" type="search" />
 
         <input wire:model.debounce.250ms="annee"
-        class=""  placeholder="annee" type="search" />
+        style="width:4.5em"  placeholder="annee" type="search" />
 
         <input wire:model.debounce.260ms="sujet"
         class=""  placeholder="sujet" type="search" />
@@ -25,11 +25,11 @@
         <input wire:model.debounce.280ms="mots_cles"
         class=""  placeholder="mots_cles" type="search" />
         
-        <button wire:click="search" >recherche</button>
+        {{-- <button wire:click="search" >recherche</button> --}}
 
     </div>
     
-    <div class="pt-3">
+    <div class="py-3">
         @if (is_iterable($projets))
             Total: {{ count($projets) }}
         @endif
@@ -40,12 +40,6 @@
             </table>
         </div>
         
-    
-        
-        
-        
-        
-
         
     </div>
 </div>

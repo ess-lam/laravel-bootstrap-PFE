@@ -11,28 +11,25 @@ class HomePage extends Controller
     
     function index(){
         $projets_rand = Projet::inRandomOrder()
-                        ->limit(5)
+                        ->limit(13)
                         ->get();
 
-        $projets_web = Projet::where('departement','informatique')
+        $projets_third = Projet::where('departement','informatique')
             ->where(function(Builder $query) {
-                $query->where('mots_cles','like', '%application%web%')
-                ->orWhere('mots_cles','like', '%site%web%')
-                ->orWhere('sujet','like', '%application%web%')
-                ->orWhere('sujet','like', '%site%web%');
+                $query->whereJsonContains('mots_cles', 'java')
+                ->OrWhereJsonContains('mots_cles', 'j2ee');
         })->get();
 
-        $projets_desktop = Projet::where('departement','informatique')
-            ->where(function(Builder $query) {
-                $query->where('mots_cles','like', '%application%desktop%')
-                ->orWhere('sujet','like', '%application%desktop%');
-        })->get();
+        $projets_second = Projet::where('departement','informatique')
+                ->orderBy('downloads', 'desc')
+                ->limit(10)
+                ->get();
 
         return view(
             'home',[
                 'projets' => $projets_rand,
-                'webs' => $projets_web,
-                'desktops' => $projets_desktop,
+                'seconds' => $projets_second,
+                'thirds' => $projets_third,
             ]
             
         );

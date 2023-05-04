@@ -30,10 +30,16 @@
     
       <li class="card-home">
         <div>
-          <h3 class="card-title-home">sujet de projet</h3>
+          <h3 class="card-title-home">Subject:</h3>
           <div class="card-content">
-            <p>
+            <p class="subject">
               {{ $projet['sujet'] }}
+            </p>
+            <p>
+              by 
+              <span class="etudiants">
+                {{ implode(',',$projet['etudiants']) }}
+              </span> 
             </p>
           </div>
         </div>
@@ -48,22 +54,28 @@
 
 
   <div class="second container-cards">
-    <h2>Applications et Sites Web</h2>
+    <h2>the 10 top downloads</h2>
     <ul class="cards-home">
     
-    @foreach ($webs as $web)
+    @foreach ($seconds as $second)
     
       <li class="card-home">
         <div>
-          <h3 class="card-title-home">sujet de projet</h3>
+          <h3 class="card-title-home">Subject:</h3>
           <div class="card-content">
+            <p class="subject">
+              {{ $second['sujet'] }}
+            </p>
             <p>
-              {{ $web['sujet'] }}
+              by 
+              <span class="etudiants">
+                {{ implode(',',$second['etudiants']) }}
+              </span> 
             </p>
           </div>
         </div>
         <div class="card-link-wrapper">
-          @livewire('counter', ['project_id' => $web->id])
+          @livewire('counter', ['project_id' => $second->id])
         </div>
       </li>
     @endforeach
@@ -73,21 +85,27 @@
   </div>
 
   <div class="third container-cards">
-    <h2>Applications Desktop</h2>
+    <h2> java projects </h2>
     <ul class="cards-home">
     
-    @foreach ($desktops as $desktop)
+    @foreach ($thirds as $third)
       <li class="card-home">
         <div>
-          <h3 class="card-title-home">sujet de projet</h3>
+          <h3 class="card-title-home">Subject:</h3>
           <div class="card-content">
+            <p class="subject">
+              {{ $third['sujet'] }}
+            </p>
             <p>
-              {{ $desktop['sujet'] }}
+              by 
+              <span class="etudiants">
+                {{ implode(',',$third['etudiants']) }}
+              </span> 
             </p>
           </div>
         </div>
         <div class="card-link-wrapper">
-          @livewire('counter', ['project_id' => $desktop->id])
+          @livewire('counter', ['project_id' => $third->id])
         </div>
       </li>
     @endforeach

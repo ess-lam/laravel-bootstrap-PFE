@@ -36,6 +36,7 @@
 .guest{
     margin-top: -55px;
 }
+            // home cards
 :root {
     --red: #ef233c;
     --darkred: #c00424;
@@ -50,7 +51,11 @@
     
     .first,.second,.third{
         margin-bottom: 4em;
-        
+        > h2{
+            text-transform: uppercase;
+            color: #c00424;
+            font-family: $font-title;
+        }
     }
 }
 
@@ -97,10 +102,14 @@ div.container-cards {
     .card-title-home {
     font-size: 20px;
     }
-    // .card-content {
-    //     //margin: 20px 0;
-    //     //max-width: 85%;
-    // }
+    .card-content .subject{
+        font-size: 2em; 
+        text-transform: capitalize;
+    }
+    .card-content p .etudiants{
+        font-weight: 600;  
+        text-transform: capitalize;
+    }
     .card-link-wrapper {
         margin-top: auto;
     }

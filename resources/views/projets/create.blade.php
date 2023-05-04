@@ -7,7 +7,7 @@
 @endsection
 
 @section('concept')
-  <h1 class="py-4" style="font-family: 'Allura',cursive;">Insert a project</h1>
+  <h1 class="pt-4 title-admin">Insert a project</h1>
   
   <div class="formulaire py-2 px-3 border border-dark bg-light rounded">
 

@@ -8,7 +8,9 @@
 
 
   @section('concept')
-  <h1 class="py-4" style="font-family: 'Allura',cursive;"> Data Index Page </h1>
+  <h1 class="py-4 title-admin"> 
+    Data Index Page 
+  </h1>
   
   
     @if (count($projets)>0)
