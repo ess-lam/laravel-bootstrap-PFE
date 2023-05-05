@@ -17,8 +17,9 @@
       <p> you have created {{count($projets)}} projects</p>
       <div class="list-p list-group">
         @foreach ($projets as $projet)
-            <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}"   
-              class="list-group-item list-group-item-action list-group-item-dark">
+            <a href="{{ route('projets.show', ['projet' => $projet['id']]) }}" 
+              style="color: black"  
+              class="list-group-item list-group-item-action list-group-item-success">
 
               <div class="etudiant"> {{implode(' , ',$projet['etudiants'])}} </div> -
               <div class="sujet"> {{$projet['sujet']}} </div> -

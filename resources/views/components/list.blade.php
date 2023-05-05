@@ -17,8 +17,14 @@
         <span class="label">mots clés: </span>
         {{implode(' , ',$projet['mots_cles'])}} </div>
         
-    <div class="diplome"> {{$projet['diplome']}} </div> 
+    <div class="diplome">
+      <span class="label">Diplome: </span>
+      {{$projet['diplome']}} 
+      </div> 
 
-    <div class="annee"> {{$projet['annee']}} </div>
+    <div class="annee">
+      <span class="label">Année: </span>
+      {{$projet['annee']}} 
+    </div>
     
   </div>

@@ -18,19 +18,19 @@ class UserSeeder extends Seeder
         
         User::create([
             'name' => 'islam ess',
-            'email' => 'islam@ess.com',
+            'email' => 'islam@edu.uiz.ac.ma',
             'password' => Hash::make('1111'),
         ]);
 
         User::create([
             'name' => 'manal ess',
-            'email' => 'manal@ess.com',
+            'email' => 'manal@edu.uiz.ac.ma',
             'password' => Hash::make('1111'),
         ]);
 
         User::create([
             'name' => 'kaoutar ess',
-            'email' => 'kaoutar@ess.com',
+            'email' => 'kaoutar@edu.uiz.ac.ma',
             'password' => Hash::make('1111'),
         ]);
     }

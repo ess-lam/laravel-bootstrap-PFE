@@ -17,13 +17,13 @@
     {{-- buttons --}}
   <div class="show-b d-flex justify-content-center">
       <a class="inline me-2 btn btn-outline-success btn-sm" href="{{route('projets.edit', $projet->id) }}">
-        modifier
+        edit
       </a>
   
       <form class="inline" action="{{route('projets.destroy', $projet->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <input class="btn btn-outline-danger btn-sm" value="supprimer" type="submit">
+        <input class="btn btn-outline-danger btn-sm" value="delete" type="submit">
       </form>
     
   </div>
