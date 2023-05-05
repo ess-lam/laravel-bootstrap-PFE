@@ -1,0 +1,34 @@
+@import 'variables';
+
+.search-title{
+    font-family: $font-title;
+}
+
+.search-container{
+    padding: 0.7rem 0;
+    background-color: rgba(93, 172, 127, 0.579);
+    border-radius: 20px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    .row1{
+        margin-bottom: 0.4rem;
+    
+        .search-element{
+            width: 23%;
+            border-radius: 20px;
+            border-style: solid;
+            border-color: rgb(104, 174, 134);
+            padding-left: 6px;
+            
+        }
+    }
+
+    .row2 .search-element{
+        width: 23%;
+        border-radius: 20px;
+        border-style: solid;
+        border-color: rgb(104, 174, 134);
+        padding-left: 6px;
+        
+    }
+}

@@ -8,7 +8,7 @@
 @endsection
 
 @section('concept')
-<h1 class="pt-5 title-admin"> Data Show Page </h1>
+<h1 class="pt-4 title-admin"> Data Show Page </h1>
 <div class="mx-4 mt-4">
 
   {{-- list the project informations --}}

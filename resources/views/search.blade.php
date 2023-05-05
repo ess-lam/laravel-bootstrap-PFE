@@ -7,7 +7,7 @@
 @endsection
 
 @section('concept')
-  <h1 class="py-4" style="font-family: 'Allura',cursive;" style="color:white">Search Page</h1>
+  <h1 class="py-4 search-title">Search Page</h1>
   
   
   {{ $slot }}
