@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('nav')
-  <a class="nav-link" href="{{route("home1")}}"  style="color:white">Home</a>
-  <a class="nav-link  active" aria-current="page" href="{{route("search")}}" style="color:white">Search</a>
+  <a class="nav-link" href="{{route('home1')}}"  style="color:white">Home</a>
+  <a class="nav-link  active" aria-current="page" href="{{route('search')}}" style="color:white">Search</a>
   
 @endsection
 
